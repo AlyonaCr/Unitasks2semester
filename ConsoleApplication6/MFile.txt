@@ -1,0 +1,5 @@
+1) Shape: rectangle Author: Mary Color: Green Left: 1 Right: 5 Top: 1 Bottom: 4 Square: 12
+2) Shape: circle Author: Mary Color: Blue x: 4 y: 5 Radius: 2.7 Square: 22.9022
+3) Shape: rectangle Author: Kate Color: Green Left: 3 Right: 7 Top: 2 Bottom: 8 Square: 24
+4) Shape: circle Author: Bob Color: Blue x: 5 y: 13 Radius: 4 Square: 50.2655
+5) Shape: circle Author: Hank Color: Red x: 5 y: 0.7 Radius: 4 Square: 50.2655
