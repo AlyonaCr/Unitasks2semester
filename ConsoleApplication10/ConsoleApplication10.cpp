@@ -26,19 +26,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	///////////////////////////////////////////////////////////////////
 
-		//Задание 1. Итераторы
-
-		//Реверсивные итераторы. Сформируйте set<Point>. Подумайте, что
-		//нужно перегрузить в классе Point. Создайте вектор, элементы которого ---- operator<
-		//являются копиями элементов set, но упорядочены по убыванию
-
 	set <Point> s = { Point(1,2), Point(6,2), Point(8,3), Point(6,8), Point(14,10) };
 	set <Point>::reverse_iterator r_itb = s.rbegin(), r_ite = s.rend();
 	vector <Point> rv (r_itb, r_ite);
 
-		//Потоковые итераторы. С помощью ostream_iterator выведите содержимое
-		//vector и set из предыдущего задания на экран.
-
+	
 	cout << "set: " << endl;
 	copy(s.begin(), s.end(), ostream_iterator<Point>(cout));
 	cout << '\n';
@@ -46,12 +38,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	copy(rv.begin(), rv.end(), ostream_iterator<Point>(cout));
 	cout << '\n';
 
-		//Итераторы вставки. С помощью возвращаемых функциями:
-		//back_inserter()		vector, deque, list
-		//front_inserter()		 deque, list
-		//inserter()			кроме адаптеров
-		//итераторов вставки добавьте элементы в любой из созданных контейнеров. Подумайте:
-		//какие из итераторов вставки можно использовать с каждым контейнером.
+
 	
 
 	back_insert_iterator<vector<Point>> it = back_inserter(rv);
@@ -74,15 +61,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	print_basic_cont(l);
 
 
-	///////////////////////////////////////////////////////////////////
-
-		//Задание 2. Обобщенные алгоритмы (заголовочный файл <algorithm>). Предикаты.
-
-		// алгоритм for_each() - вызов заданной функции для каждого элемента любой последовательности
-		//(массив, vector, list...)
-		//С помощью алгоритма for_each в любой последовательности с элементами любого типа
-		//распечатайте значения элементов
-		//Подсказка : неплохо вызываемую функцию определить как шаблон
 
 	for_each(l.begin(), l.end(), print_for_each<Point>);
 	cout << '\n';
@@ -110,8 +88,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	}
 
-		//С помощью алгоритма find() найдите в любой последовательности элементов Point
-		//все итераторы на элемент Point с указанным значением.
+	
 
 	{
 		vector <Point> vp = {Point(1,3), Point(1,7), Point(8,3), Point(1,3), Point(8,6)};
@@ -134,11 +111,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 
-		//С помощью алгоритма sort() отсортируйте любую последовательность элементов Point. 
-		////По умолчанию алгоритм сортирует последовательность по возрастанию.
-		//Что должно быть определено в классе Point?
-		// Замечание: обобщенный алгоритм sort не работает со списком, так как
-		//это было бы не эффективно => для списка сортировка реализована методом класса!!!
 	{
 
 		vector <Point> vp = { Point(1,3), Point(1,7), Point(8,3), Point(1,3), Point(8,6) };
@@ -178,8 +150,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 	}
 
-		//С помощью алгоритма sort() отсортируйте любую последовательность элементов Rect,
-		//располагая прямоугольники по удалению центра от начала координат.
+		
 	vector <Rect> vrect = { Rect(RED, "Bob",1,5,2,7), Rect(GREEN,"Hank", 1, 5, 1, 4), Rect(BLUE,"Katy", 3,7,6,12) , Rect(RED,"Mandy",2,7,0,4) };
 	cout << "vector before sort:" << endl;
 	print_basic_cont(vrect);
@@ -189,10 +160,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 	{//transform
-		//Напишите функцию, которая с помощью алгоритма transform переводит 
-		//содержимое объекта string в нижний регистр.
-		//Подсказка: класс string - это "почти" контейнер, поэтому для него
-		// определены методы begin() и end()
+	
 
 		string str("AAABBBCCDD");
 		transform(str.begin(), str.end(),str.begin(),tolower);
@@ -200,8 +168,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 
-		//Заполните list объектами string. С помощью алгоритма transform сформируте
-		//значения "пустого" set, конвертируя строки в нижний регистр
+
 		{list <string> strl = { "Apple", "Banana", "KIWI" };
 		set<string> strs;
 		set<string>::iterator ite = strs.begin();
@@ -214,10 +181,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	{// map
 
-		//Сформируйте любым способом вектор с элементами типа string.
-		//Создайте (и распечатайте для проверки) map<string, int>, который будет
-		//содержать упорядоченные по алфавиту строки и
-		//количество повторений каждой строки в векторе
+
 		vector <string> v = { "apple", "banana", "ananas", "cabbage", "kiwi", "potato", "ananas", "ananas" };
 		map <string, int> mp;
 	
